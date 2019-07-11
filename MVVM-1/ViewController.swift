@@ -10,14 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var profile: Profile? {
+    var viewModel: ViewModel! {
         didSet {
-            guard let profile = profile else { return }
-            self.nameLabel.text = profile.name
-            self.secondNameLabel.text = profile.secondName
-            self.ageLabel.text = profile.age.description
+            self.nameLabel.text = viewModel.name
+            self.secondNameLabel.text = viewModel.secondName
+            self.ageLabel.text = viewModel.age
         }
     }
+    
+
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var secondNameLabel: UILabel!
@@ -26,8 +27,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        profile = Profile(name: "Сергей", secondName: "Иванов", age: 33)
+        viewModel = ViewModel()
     }
 
 
